@@ -1,1 +1,1 @@
-#Initial creation of repo and readme for said repo
+This repository is for my Regression lesson notes and exercises during my time at Codeup.

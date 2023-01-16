@@ -41,12 +41,12 @@ def xy_subsets(train, validate, test):
     
     return X_train, y_train, X_validate, y_validate, X_test, y_test
 
-def train_vailidate_test_split(df, target):
+def train_vailidate_test_split(df, target, stratify=None):
     '''
      This function will take my dataset, turn it into train, validate, and test, and then further split them into the x and y subsets. When running this, be sure to assign each of the variables in the proper order, otherwise it will almost certainly mess up. (X_train, y_train, X_validate, y_validate, X_test, y_test)
     '''
-    train_validate, test = train_test_split(df, train_size =.8, random_state = 91, stratify = df[target])
-    train, validate = train_test_split(train_validate, train_size = .7, random_state = 91, stratify = train_validate[target])
+    train_validate, test = train_test_split(df, train_size =.60, random_state = 42, stratify = df[target])
+    train, validate = train_test_split(train_validate, train_size = .7, random_state = 42, stratify = train_validate[target])
     
     X_train = train.drop(columns=target)
     y_train = train[target]

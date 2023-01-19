@@ -24,20 +24,20 @@ def calc_baseline(df, baseline, col):
     
     print(f'Baseline Accuracy is: {base:.3}')
     
-def xy_subsets(train, validate, test):
+def xy_subsets(train, validate, test, target):
     '''
-    This function will separate each of my subsets for the zillow dataset (train, validate, and test) and split them further into my x and y subsets for modeling. When running this, be sure to assign each of the six variables in the proper order, otherwise it will almost certainly mess up. (X_train, y_train, X_validate, y_validate, X_test, y_test). NEEDS TO BE REDONE FOR ZILLOW
+    This function will separate each of my subsets for the dataset (train, validate, and test) and split them further into my x and y subsets for modeling. When running this, be sure to assign each of the six variables in the proper order, otherwise it will almost certainly mess up. (X_train, y_train, X_validate, y_validate, X_test, y_test).
     '''  
     seed = 42
     
-    X_train = train.drop(columns=['tax_value'])
-    y_train = train.tax_value
+    X_train = train.drop(columns=[target])
+    y_train = train[target]
 
-    X_validate = validate.drop(columns=['tax_value'])
-    y_validate = validate.tax_value
+    X_validate = validate.drop(columns=[target])
+    y_validate = validate[target]
 
-    X_test = test.drop(columns=['tax_value'])
-    y_test = test.tax_value
+    X_test = test.drop(columns=[target])
+    y_test = test[target]
     
     return X_train, y_train, X_validate, y_validate, X_test, y_test
 
